@@ -1,0 +1,64 @@
+#!/bin/bash
+printf "Baseline Setup Initialized "
+printf "To add fonts, run as sudo"
+sudo dpkg --configure -a
+sudo apt-get -y update
+sudo apt-get -y install
+sudo apt-get -y autoremove
+
+printf "Adding: %s\n\n" "Vim"
+sudo apt -y install vim
+
+printf "Adding: %s\n\n" "Vundle"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+printf "Adding: %s\n\n" "Plugins"
+vim +PluginInstall +qall
+
+printf "Adding: %s\n\n" "YCM Packages"
+sudo apt -y install build-essential cmake python3-dev
+
+printf "Adding: %s\n\n" "YouCompleteMe"
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --clang-completer
+cd ~/
+
+printf "Adding: %s\n\n" "Natural Scroll"
+gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
+
+printf "Adding: %s\n\n" "Sloppy focus mode for mouse"
+gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
+
+printf "Adding: %s\n\n" "Tap To Click"
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true 
+
+printf "Adding: %s\n\n" "Chromium web browser"
+sudo apt -y install chromium-browser
+
+printf "Adding: %s\n\n" "New font: To use source semibold, just enter preferences"
+git clone https://github.com/adobe-fonts/source-code-pro.git ~/git/font
+mv ~/git/font/OTF/ /usr/share/fonts/opentype
+fc-cache -f -v
+rm -rf ~/git/font
+
+printf "Adding: %s\n\n" "Default Java JDK"
+sudo apt-get install default-jdk
+
+printf "Adding: %s\n\n" "Xclip"
+sudo apt -y install xclip
+
+printf "Adding: %s\n\n" "Git"
+sudo apt -y install git
+
+printf "Adding: %s\n\n" " New ssh key. Press enter to accept defaults"
+ssh-keygen -t rsa -b 4096 -C "hugringr@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+xclip -sel clip < ~/.ssh/id_rsa.pub
+python -mwebbrowser https://github.com/
+printf "%s\n\n" "Key saved to clipboard. Enter settings to add it"
+
+printf "Adding: %s\n\n" "Git folder"
+mkdir git
+
+printf "Adding: %s\n\n" "Setup completed. Enjoy"
