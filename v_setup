@@ -6,8 +6,10 @@ sudo apt-get -y update
 sudo apt-get -y install
 sudo apt-get -y autoremove
 
-printf "Adding: %s\n\n" "Vim"
+printf "Adding: %s\n\n" "Vim and setting it to be default editor"
 sudo apt -y install vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 printf "Adding: %s\n\n" "Vundle"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -47,8 +49,11 @@ sudo apt-get install default-jdk
 printf "Adding: %s\n\n" "Xclip"
 sudo apt -y install xclip
 
-printf "Adding: %s\n\n" "Git"
+printf "Adding: %s\n\n" "Git, setting default credentials"
 sudo apt -y install git
+git config --global user.name "Laureleo"
+git config --global user.email "hugringr@gmail.com"
+mkdir git
 
 printf "Adding: %s\n\n" " New ssh key. Press enter to accept defaults"
 ssh-keygen -t rsa -b 4096 -C "hugringr@gmail.com"
@@ -58,7 +63,5 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 python -mwebbrowser https://github.com/
 printf "%s\n\n" "Key saved to clipboard. Enter settings to add it"
 
-printf "Adding: %s\n\n" "Git folder"
-mkdir git
 
-printf "Adding: %s\n\n" "Setup completed. Enjoy"
+printf "s\n\n" "Setup completed. Enjoy"
