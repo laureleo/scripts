@@ -48,7 +48,7 @@ fc-cache -f -v
 rm -rf ~/git/font
 
 printf "Adding: %s\n\n" "Default Java JDK"
-sudo apt-get install default-jdk
+sudo apt-get -y install default-jdk
 
 printf "Adding: %s\n\n" "Xclip"
 sudo apt -y install xclip
