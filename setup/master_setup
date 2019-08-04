@@ -1,5 +1,9 @@
 #!/bin/bash
 printf "Baseline Setup Initialized "
+
+printf "Adding: %s\n\n" "colemak"
+setxkbmap us -variant colemak
+
 printf "To add fonts, run as sudo"
 sudo dpkg --configure -a
 sudo apt-get -y update
