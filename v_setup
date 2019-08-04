@@ -48,7 +48,7 @@ fc-cache -f -v
 rm -rf ~/git/font
 
 printf "Adding: %s\n\n" "Default Java JDK"
-sudo apt-get install default-jdk
+sudo apt-get -y install default-jdk
 
 printf "Adding: %s\n\n" "Xclip"
 sudo apt -y install xclip
@@ -66,6 +66,5 @@ ssh-add ~/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
 python -mwebbrowser https://github.com/
 printf "%s\n\n" "Key saved to clipboard. Enter settings to add it"
-
 
 printf "s\n\n" "Setup completed. Enjoy"
