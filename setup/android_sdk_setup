@@ -1,0 +1,19 @@
+#!/bin/bash
+printf "Assuming android-studio folder is in /opt \n\n"
+
+echo "[Desktop Entry]
+ Name=Android Studio
+ Comment=Integerated Development Environment for Android
+ Exec=/opt/android-studio/bin/studio.sh
+ Icon=/opt/android-studio/bin/studio.png
+ Terminal=false
+ Type=Application
+ Categories=Development;IDE" > /opt/android-studio/android-studio.desktop
+
+desktop-file-install /opt/android-studio/android-studio.desktop
+
+
+printf "DONE \n\n"
+
+
+
