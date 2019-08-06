@@ -67,4 +67,4 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 python -mwebbrowser https://github.com/
 printf "%s\n\n" "Key saved to clipboard. Enter settings to add it"
 
-printf "s\n\n" "Setup completed. Enjoy"
+printf "%s\n\n" "Setup completed. Enjoy"
