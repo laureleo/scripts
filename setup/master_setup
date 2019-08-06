@@ -57,6 +57,8 @@ printf "Adding: %s\n\n" "Git, setting default credentials"
 sudo apt -y install git
 git config --global user.name "Laureleo"
 git config --global user.email "hugringr@gmail.com"
+git config --global push.default simple
+
 mkdir git
 
 printf "Adding: %s\n\n" " New ssh key. Press enter to accept defaults"
