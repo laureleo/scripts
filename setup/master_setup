@@ -15,6 +15,10 @@ sudo apt -y install vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+printf "Adding: %s\n\n" "bashrc and vimrc"
+mv ./.bash_aliases ~/
+mv ./.vimrc ~/
+
 printf "Adding: %s\n\n" "Vundle"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
