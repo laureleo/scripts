@@ -52,11 +52,10 @@ printf "Adding: %s\n\n" "New font: To use source semibold, just enter preference
 git clone https://github.com/adobe-fonts/source-code-pro.git ~/git/font
 mv ~/git/font/OTF/ /usr/share/fonts/opentype
 fc-cache -f -v
-rm -rf ~/git/font
 
 printf "Adding: %s\n\n" "Default Java JDK"
 sudo apt-get -y install default-jdk
 
 printf "%s\n\n" "Setup completed. Enjoy"
-gsettings set org.gnome.desktop.background picture-uri ~/setup/bg.jpg
+gsettings set org.gnome.desktop.background picture-uri file://$(pwd)/fg.jpg
 
