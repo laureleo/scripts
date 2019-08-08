@@ -1,0 +1,22 @@
+#!/bin/bash
+printf "Checking if KVM can be run\n\n"
+sudo apt install -y cpu-checker 
+kvm-ok
+
+printf "Installing KVM \n\n"
+apt-get -y install qemu-kvm bridge-utils virt-manager
+
+printf "Add user to libvirtd \n\n"
+sudo adduser $(whoami) libvirt
+sudo systemctl restart libvirtd.service
+
+newgrp libvirt
+
+printf "DONE \n\n"
+
+
+printf " SOURCES:
+\n https://help.ubuntu.com/community/KVM/Installation 
+\n https://computingforgeeks.com/use-virt-manager-as-non-root-user/\n"
+
+
