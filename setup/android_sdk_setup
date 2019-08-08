@@ -12,17 +12,5 @@ echo "[Desktop Entry]
 
 desktop-file-install /opt/android-studio/android-studio.desktop
 
-printf "Installing KVM \n\n"
-apt-get -y install qemu-kvm libvirt-bin bridge-utils virt-manager
-
-printf "Add user to libvirtd \n\n"
-usermod -a -G libvirtd $(whoami)
-
-printf " SOURCES:
-\n https://vitux.com/how-to-install-kvm-to-create-and-manage-virtual-machines-in-ubuntu/
-\n https://computingforgeeks.com/use-virt-manager-as-non-root-user/\n"
-
-
 printf "DONE \n\n"
 
-newgrp libvirtd

@@ -57,5 +57,5 @@ printf "Adding: %s\n\n" "Default Java JDK"
 sudo apt-get -y install default-jdk
 
 printf "%s\n\n" "Setup completed. Enjoy"
-gsettings set org.gnome.desktop.background picture-uri file://$(pwd)/fg.jpg
+gsettings set org.gnome.desktop.background picture-uri file://$(pwd)/bg.jpg
 
