@@ -56,6 +56,10 @@ fc-cache -f -v
 printf "Adding: %s\n\n" "Default Java JDK"
 sudo apt-get -y install default-jdk
 
+printf "Adding: %s\n\n" "VLC, Deluge(torrent)"
+sudo apt-get install vlc
+sudo apt-get install deluge
+
 printf "%s\n\n" "Setup completed. Enjoy"
 gsettings set org.gnome.desktop.background picture-uri file://$(pwd)/bg.jpg
 
