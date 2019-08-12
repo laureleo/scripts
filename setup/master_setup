@@ -19,9 +19,6 @@ printf "Adding: %s\n\n" "bashrc and vimrc"
 cp ./.bash_aliases ~/
 cp ./.vimrc ~/
 
-printf "Adding: %s\n\n" "Xclip"
-sudo apt -y install xclip
-
 printf "Adding: %s\n\n" "Vundle"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 

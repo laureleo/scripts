@@ -1,4 +1,8 @@
 #!/bin/bash
+
+printf "Adding: %s\n\n" "Xclip"
+sudo apt -y install xclip
+
 printf "Adding: %s\n\n" "Git, setting default credentials"
 
 sudo apt -y install git
