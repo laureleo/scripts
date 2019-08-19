@@ -17,6 +17,7 @@ printf "DONE \n\n"
 
 printf " SOURCES:
 \n https://help.ubuntu.com/community/KVM/Installation 
-\n https://computingforgeeks.com/use-virt-manager-as-non-root-user/\n"
+\n https://computingforgeeks.com/use-virt-manager-as-non-root-user/ 
+You may have to restart your computer for the changes to take effect\n"
 
 

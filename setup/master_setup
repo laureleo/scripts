@@ -4,7 +4,6 @@ printf "Baseline Setup Initialized "
 printf "Adding: %s\n\n" "colemak"
 setxkbmap us -variant colemak
 
-printf "To add fonts, run as sudo"
 sudo dpkg --configure -a
 sudo apt-get -y update
 sudo apt-get -y install
@@ -47,7 +46,7 @@ sudo apt -y install chromium-browser
 
 printf "Adding: %s\n\n" "New font: To use source semibold, just enter preferences"
 git clone https://github.com/adobe-fonts/source-code-pro.git ~/git/font
-mv ~/git/font/OTF/ /usr/share/fonts/opentype
+sudo mv ~/git/font/OTF/ /usr/share/fonts/opentype
 fc-cache -f -v
 
 printf "Adding: %s\n\n" "Default Java JDK"
