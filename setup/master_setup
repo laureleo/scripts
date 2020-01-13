@@ -5,9 +5,10 @@ printf "Adding: %s\n\n" "colemak"
 setxkbmap us -variant colemak
 
 sudo dpkg --configure -a
-sudo apt-get -y update
-sudo apt-get -y install
-sudo apt-get -y autoremove
+sudo apt -y update
+sudo apt -y upgrade 
+sudo apt -y install
+sudo apt -y autoremove
 
 printf "Adding: %s\n\n" "Vim and setting it to be default editor"
 sudo apt -y install vim
