@@ -78,3 +78,4 @@ sudo apt-get install deluge
 printf "%s\n\n" "Setup completed. Enjoy"
 gsettings set org.gnome.desktop.background picture-uri file://$(pwd)/bg.jpg
 
+printf "%s\n\n" "Consider adding the .profile  to control keyboard layout, if that doesn't work"
