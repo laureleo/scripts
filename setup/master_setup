@@ -1,5 +1,34 @@
 #!/bin/bash
-printf "Baseline Setup Initialized "
+echo STARTING SYSTEM SETUP
+echo Do you want to setup git as well? [y/n]
+read answer
+
+if [ $answer == 'y' ]
+then
+    echo Understood, setting up git.
+
+    printf "Adding: %s\n\n" "Xclip"
+    sudo apt -y install xclip
+
+    printf "Adding: %s\n\n" "Git, setting default credentials"
+    sudo apt -y install git
+    git config --global user.name "Laureleo"
+    git config --global user.email "hugringr@gmail.com"
+    git config --global push.default simple
+
+    mkdir ~/git
+
+    printf "Adding: %s\n\n" " New ssh key. Press enter to accept defaults"
+    ssh-keygen -t rsa -b 4096 -C "hugringr@gmail.com"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
+    xclip -sel clip < ~/.ssh/id_rsa.pub
+    python3 -mwebbrowser https://github.com/
+    printf "%s\n\n" "Key saved to clipboard. Enter settings to add it"
+
+else
+    echo Understood, skipping git.
+fi
 
 printf "Adding: %s\n\n" "colemak"
 setxkbmap us -variant colemak
@@ -14,25 +43,6 @@ printf "Adding: %s\n\n" "Vim and setting it to be default editor"
 sudo apt -y install vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
-
-printf "Adding: %s\n\n" "Xclip"
-sudo apt -y install xclip
-
-printf "Adding: %s\n\n" "Git, setting default credentials"
-sudo apt -y install git
-git config --global user.name "Laureleo"
-git config --global user.email "hugringr@gmail.com"
-git config --global push.default simple
-
-mkdir ~/git
-
-printf "Adding: %s\n\n" " New ssh key. Press enter to accept defaults"
-ssh-keygen -t rsa -b 4096 -C "hugringr@gmail.com"
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
-xclip -sel clip < ~/.ssh/id_rsa.pub
-python3 -mwebbrowser https://github.com/
-printf "%s\n\n" "Key saved to clipboard. Enter settings to add it"
 
 printf "Adding: %s\n\n" "bashrc and vimrc"
 cp ./.bash_aliases ~/

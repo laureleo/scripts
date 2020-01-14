@@ -1,0 +1,26 @@
+#!/bin/bash
+printf "Started personal system setup\n\n"
+
+printf "\n%s\n\n" "Installing curl"
+sudo apt install curl
+
+printf "\n%s\n\n" "Installing unzip"
+sudo apt install unzip
+
+# -L to allow for redirects to the download website
+printf "\n%s\n\n" "Downloading setup scripts"
+curl -L https://github.com/laureleo/scripts/archive/master.zip --output temp.zip
+
+printf "\n%s\n\n" "Extracting scripts"
+unzip temp.zip
+
+printf "\n%s\n\n" "Loading..."
+bash scripts-master/setup/master_setup
+
+printf "Cleaning up"
+rm -rf temp.zip
+rm -rf scripts-master
+
+
+
+
