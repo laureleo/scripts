@@ -19,7 +19,6 @@ bash scripts-master/setup/master_setup
 
 printf "Cleaning up"
 rm -rf temp.zip
-rm -rf scripts-master
 
 
 
