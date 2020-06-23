@@ -5,7 +5,6 @@
 " Use vundle. Make sure you've installed it.
 " git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-
 set nocompatible              " required
 filetype off                  " required
 
@@ -42,8 +41,15 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
-" Faster mode switch
+"imap (Insertion mode)
+"
+" Faster mode switch. 
 imap tn <ESC>
+
+"nmap (Normal mode)
+"take colemak into account for vim
+"nmap 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -90,6 +96,7 @@ set nu
 set nobackup
 set nowb
 set noswapfile
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -152,6 +159,40 @@ let g:EclimCompletionMethod = 'omnifunc'
 
 " Close preview window after completion 
 let g:ycm_autoclose_preview_window_after_completion = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Add special mode for entering digits with homerow 
+" In normal mode, press tab to enter vimlock. Press normal mode to exit
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <C-I> :call VimLock(1)<CR>i
+function! VimLock(enable)
+  if a:enable
+    inoremap a 1
+    inoremap r 2
+    inoremap s 3
+    inoremap t 4
+    inoremap o 5
+    inoremap i 6
+    inoremap e 7
+    inoremap n 8
+    inoremap d 9
+    inoremap n 0
+    inoremap <Esc> <Esc>:call VimLock(0)<CR>
+  else
+    iunmap a
+    iunmap r
+    iunmap s
+    iunmap t
+    iunmap d
+    iunmap h
+    iunmap n
+    iunmap e
+    iunmap i
+    iunmap o
+    iunmap <Esc>
+  endif
+endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

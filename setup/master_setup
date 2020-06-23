@@ -44,9 +44,10 @@ sudo apt -y install vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-printf "Adding: %s\n\n" "bashrc and vimrc"
+printf "Adding: %s\n\n" "bashrc and vimrc and aliases"
 cp ./.bash_aliases ~/
 cp ./.vimrc ~/
+cp ./.bashrc ~/
 
 printf "Adding: %s\n\n" "Vundle"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -85,6 +86,11 @@ sudo apt-get -y install default-jdk
 printf "Adding: %s\n\n" "VLC, Deluge(torrent)"
 sudo apt-get install vlc
 sudo apt-get install deluge
+
+
+printf "Adding: %s\n\n" "I3W config file to the expected directory"
+cp ./i3wconfig ~/.config/i3/config
+
 
 printf "%s\n\n" "Setup completed. Enjoy"
 
